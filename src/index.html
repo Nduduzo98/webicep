@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IcepWeb</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   
+
+       
+  <style>
+    body{
+      
+    margin: -10;
+    padding: -10;
+
+    font-family: sans-serif;
+    background-size: cover;
+    background-position: center;
+}
+    
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body background="./assets/pictures/back.jpg" class="mat-typography">
+  <script>
+    var modal = document.getElementById('simpleModal');
+
+    var modalBtn = document.getElementById('modalBtn');
+
+    var closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+
+
+    modalBtn.addEventListener('click',openModal);
+    closeBtn.addEventListener('click',closeModal);
+
+    function openModal(){
+      modal.style.display = 'block';
+
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+      
+    }
+ </script>
+  <app-root></app-root>
+</body>
+</html>
