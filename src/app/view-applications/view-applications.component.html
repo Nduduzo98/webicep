@@ -97,10 +97,10 @@ h1{
 button{
 
     color: white;
-    width:100px;
+    width:50px;
     padding:10px;
-    border-radius:20px ;
-    font-size: 15px;
+    border-radius: 10px;
+    font-size: 10px;
     margin: 10px 0;
     border:none;
     outline:none;
@@ -120,6 +120,15 @@ h2{
 {
 
     background-color: rgba(255, 255, 255, 0.568);
+}
+th{
+    color: white;
+}
+td{
+    color:rgb(255, 255, 255)
+}
+td i {
+    color: blue;
 }
 
 
@@ -173,33 +182,42 @@ h2{
 
                 <div class="form-group">
                  
-                         <table *ngFor ="let application of applicationss">
-                             
-                             <tr>
-                                 <th>
-                                 <label> First Name:</label>
-                                 </th>
-                                 <td>
-                                    {{application.firstname}}
-                                     <br>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <th>
-                                 <label>Last Name:</label>
-                                 </th>
-                                 <td>
-                                     <br>
-                                 </td>
-                             </tr>
-                             
-                             <tr>
-                               <th><label>Email:</label> &nbsp;
-                       
-                               </th>
-                               <td></td>
-                       
-                             </tr>
+                         <table >
+                            <thead style="background-color: rgba(223, 223, 223, 0.479);">
+                                <tr>
+                                  <th scope="col">Firstname</th>
+                                  <th scope="col">Lastname</th>
+                                  <th scope="col">Studentno</th>
+                                  <th scope="col">Email</th>
+                                  <th scope="col">Cell No</th>
+                                  <th scope="col">Specialization</th>
+                                  <th scope="col">Response</th>
+                                  <th scope="col">Operations</th>
+                                </tr>
+                              </thead>
+                              <tbody style="background-color: rgba(216, 29, 29, 0.534)" >
+                                <tr *ngFor="let application of applicationss">
+                                  
+                                  <td>{{application.firstname}}</td>
+                                  <td>{{application.lastname}}</td>
+                                  <td>{{application.studentno}}</td>
+                                  <td>{{application.email}}</td>
+                                  <td>{{application.mobileno}}</td>
+                                  <td>{{application.specialization}}</td>
+                                  <td><a [routerLink]="'/update'">
+                                    <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                                    <span class="title">Reply</span>
+                                </a></td>
+                                <td><button (click) = "deleteApp(application.studentno); reloadpage()" class="btn btn-danger" type="button" [routerLink]="'/view-applications'">DELETE RECORD</button></td>
+                                  
+                                    
+                            
+                               
+                      
+                                </tr>
+                               
+                              </tbody>
+                           
                              
                          </table>
                          
@@ -207,6 +225,7 @@ h2{
                          <hr>
                          
                 </div>
+               
          </form>
          
             

@@ -9,7 +9,8 @@ export class ProfileService {
   createUrl = "http://localhost:5000/register";
   applyUrl = "http://localhost:5000/application";
   loginUrl = "http://localhost:5000/n";
-  deleteUrl = "http://localhost:5000"
+  deleteUrl = "http://localhost:4000"
+  displayUrl = "http://localhost:4000/profiles"
   constructor(private http:HttpClient) { }
   
   createProfile(applicants:any)
@@ -26,8 +27,11 @@ export class ProfileService {
   public getApplicants(){
     return this.http.get<any>(this.loginUrl);
   }
-  public deleteStud(studentNumber:any){
+  public deleteProfile(email:any){
 
-    return this.http.delete<any>( this.deleteUrl+'/'+studentNumber)
+    return this.http.delete<any>( this.deleteUrl+'/'+email)
+}
+public getProfile(){
+  return this.http.get<any>(this.displayUrl);
 }
 }

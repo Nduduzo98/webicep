@@ -11,6 +11,9 @@ body
     background-size: cover;
     background-position: center;
 }
+h3{
+    color: red;
+}
 p{
     color: white;
 }
@@ -164,38 +167,33 @@ nav a:hover{
 
             <form name="userform">
 
-                   <div class="form-group">
+                   <div>
                     
-                            <table>
-                                <tr>
-                                    <th>
+                           
                                     <label> First Name:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="applying.firstname" type="text" name="firstname" class="input-box" placeholder="First Name" ng-model="firstname" required><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
+                                    
+                                        <input [(ngModel)] ="applying.firstname" type="text" name="firstname" class="input-box" placeholder="First Name" #firstname="ngModel" required/><br>
+                                        <div *ngIf = "firstname.errors && (firstname.dirty || firstname.touched)">
+                   
+                                                    <h3 *ngIf="firstname.errors.required">*First Name is required</h3>
+                                        </div>
                                     <label>Last Name:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="applying.lastname" type="text" name="lastname" class="input-box" placeholder="Last Name" required  ng-model="lastname" required ><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
+                                   
+                                        <input [(ngModel)] ="applying.lastname" type="text" name="lastname" #lastname = "ngModel" class="input-box" placeholder="Last Name" required  ng-model="lastname"required /><br>
+                                        <div *ngIf = "lastname.errors && (lastname.dirty || lastname.touched)">
+                   
+                                            <h3 *ngIf="lastname.errors.required">*Last Name is required</h3>
+                                </div>
                                     <label>Student No:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="applying.studentno"type="number" size="9" name="studentnumber" class="input-box" placeholder="Student Number" ng-model="studentnumber" required ><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                     <label for="specialization">Specialization:</label>                                    </th>
-                                    <td>
-                                        <select [(ngModel)] ="applying.specialization" name="specialization" id="subject" required>
+                                    
+                                        <input [(ngModel)] ="applying.studentno"type="number" size="9" #studentno="ngModel"name="studentnumber" class="input-box" placeholder="Student Number" ng-model="studentnumber" required /><br>
+                                        <div *ngIf = "studentno.errors && (studentno.dirty || studentno.touched)">
+                   
+                                            <h3 *ngIf="studentno.errors.required">*Student number is required</h3>
+                                </div>
+                                     <label for="specialization">Specialization:</label>                                  
+                                    
+                                        <select [(ngModel)] ="applying.specialization" #specialization="ngModel" name="specialization" id="subject" required>
                                             <option value="" disabled selected hidden>Select</option>
                                             <option value="SOFTWARE DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
                                             <option value="BUSINESS APPLICATIONS">BUSINESS APPLICATIONS</option>
@@ -203,32 +201,40 @@ nav a:hover{
                                             <option value="COMPUTER SYSTEMS">COMPUTER SYSTEMS</option>
                                           
                                         </select>
-                                    </td>
-                                </tr>
+                                        <div *ngIf = "specialization.errors && (specialization.dirty || specialization.touched)">
+                   
+                                            <h3 *ngIf="specialization.errors.required">*Specialization is required</h3>
+                                </div>
+                                    
                                
                                
                                
             
-                                <tr>
-                                    <th>
-                                    <label>Cell No:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="applying.mobileno" type="text" size="10" name="mobileno" class="input-box" placeholder="Contact Number" ng-model="mobileno" required ><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                  <th><label>Email:</label> &nbsp;
+                               
+                                        <label>Cell No:</label>
+                                   
+                                        <input [(ngModel)] ="applying.mobileno" type="text" #mobileno="ngModel" size="10" name="mobileno" class="input-box" placeholder="Contact Number" ng-model="mobileno"required/><br>
+                                        <div *ngIf = "mobileno.errors && (mobileno.dirty || mobileno.touched)">
+                   
+                                            <h3 *ngIf="mobileno.errors.required">*Cell Number is required</h3>
+                                </div>
+                                        <label>Email:</label> &nbsp;
                           
-                                  </th>
-                                  <td><input [(ngModel)] ="applying.email" type="email" name="email" class="input-box"  placeholder="Email" ng-model="email" required></td>
-                          
-                                </tr>
+                                  
+                                  <input [(ngModel)] ="applying.email" type="email" #email = "ngModel" name="email" class="input-box"  placeholder="Email" ng-model="email" required />
+                                  <div *ngIf = "email.errors && (email.dirty || email.touched)">
+                   
+                                    <h3 *ngIf="email.errors.required">*Email is required</h3>
+                        </div>
+                              
                                 
                                 
-                            </table>
+                          
                             
-                            <button (click) = "apply()" type="submit" class="reg_btn" >APPLY</button>
+                             <button (click) = "apply()" type="submit" class="reg_btn">APPLY</button> 
+                            <div *ngIf ="showMsg">
+                                <p class="alert alert-success">Application Submitted </p>
+                            </div>
                           
                           
      

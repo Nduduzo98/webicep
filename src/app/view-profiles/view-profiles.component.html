@@ -121,6 +121,15 @@ h2{
 
     background-color: rgba(255, 255, 255, 0.568);
 }
+th{
+    color: white;
+}
+td{
+    color:rgb(255, 255, 255)
+}
+td i {
+    color: blue;
+}
 
 
    </style>
@@ -167,9 +176,47 @@ h2{
         <div class="regform">
             <div class="logoI"><img src="assets\pictures\ICEP-Logo.png"></div>
         
-            <h1>View Profiles</h1>
-            <h2></h2>
-           
+            <h1>View Profile</h1>
+      
+            <form name="userform">
+
+                <div class="form-group">
+                 
+                         <table >
+                            <thead style="background-color: rgba(223, 223, 223, 0.479);">
+                                <tr>
+                                  <th scope="col">Firstname</th>
+                                  <th scope="col">Lastname</th>
+                                  <th scope="col">Email</th>
+                                  <th scope="col">Operations</th>
+                                </tr>
+                              </thead>
+                              <tbody style="background-color: rgba(216, 29, 29, 0.534)" >
+                                <tr *ngFor="let prof of profiles">
+                                  
+                                  <td>{{prof.first_name}}</td>
+                                  <td>{{prof.last_name}}</td>
+                                  <td>{{prof.email}}</td>
+                                  <td><button (click) = "deleteProfile(prof.email);" class="btn btn-danger" type="button" [routerLink]="'/view-profiles'">DELETE</button></td>
+                                  
+                                    
+                            
+                               
+                      
+                                </tr>
+                               
+                              </tbody>
+                           
+                             
+                         </table>
+                         
+                         
+                         <hr>
+                         
+                </div>
+               
+         </form>
+         
             
             
 

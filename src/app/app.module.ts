@@ -21,6 +21,7 @@ import { PostVacanciesComponent } from './post-vacancies/post-vacancies.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateComponent } from './update/update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminComponent,
     ViewProfilesComponent,
     ViewApplicationsComponent,
-    PostVacanciesComponent
+    PostVacanciesComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

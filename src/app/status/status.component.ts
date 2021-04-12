@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplyService } from './../../app/apply.service';
 
 @Component({
   selector: 'app-status',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private applyIcep: ApplyService) { }
+  statuses:any = [];
 
   ngOnInit(): void {
+    this.getApplications()
+  }
+  getApplications(){
+    this.applyIcep.getApplications().subscribe((data:any)=>this.statuses=data);
   }
 
 }

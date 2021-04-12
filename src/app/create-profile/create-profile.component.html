@@ -147,7 +147,15 @@ nav a:hover{
 
     background-color: rgba(255, 255, 255, 0.568);
 }
-
+a{
+    color:white ;
+}
+a:hover{
+    color: blue;
+}
+h3{
+    color: red;
+}
 
 </style>
   
@@ -166,46 +174,45 @@ nav a:hover{
 
                    <div class="form-group">
                     
-                            <table>
-                            
-                                <tr>
-                                    <th>
+                           
                                     <label> First Name:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="createProf.first_name" type="text" name="firstname" class="input-box" placeholder="First Name" ng-model="firstname" required><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
+                                        <input [(ngModel)] ="createProf.first_name" type="text" #first_name="ngModel" name="firstname" class="input-box" placeholder="First Name" ng-model="firstname" required><br>
+            
+                                <div *ngIf = "first_name.errors && (first_name.dirty || first_name.touched)">
+                   
+                                    <h3 *ngIf="first_name.errors.required">*First Name is required</h3>
+                        </div>
+                                
                                     <label>Last Name:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="createProf.last_name" type="text" name="lastname" class="input-box" placeholder="Last Name" required  ng-model="lastname" required ><br>
-                                    </td>
-                                </tr>
+                                   
+                                        <input [(ngModel)] ="createProf.last_name" #last_name="ngModel" type="text" name="lastname" class="input-box" placeholder="Last Name" required  ng-model="lastname" required ><br>
+                                        <div *ngIf = "last_name.errors && (last_name.dirty || last_name.touched)">
+                   
+                                            <h3 *ngIf="last_name.errors.required">*First Name is required</h3>
+                                </div>
+                                  <label>Email:</label> &nbsp;
+                          
+                                  <input [(ngModel)] ="createProf.email" #email = "ngModel" type="email" name="email" class="input-box"  placeholder="Email" ng-model="email" required>
+                                  <div *ngIf = "email.errors && (email.dirty || email.touched)">
+                   
+                                    <h3 *ngIf="email.errors.required">*First Name is required</h3>
+                        </div>
                                
-                                <tr>
-                                  <th><label>Email:</label> &nbsp;
-                          
-                                  </th>
-                                  <td><input [(ngModel)] ="createProf.email" type="email" name="email" class="input-box"  placeholder="Email" ng-model="email" required></td>
-                          
-                                </tr>
-                                <tr>
-                                    <th>
                                         <label>Password:</label>
-                                    </th>
-                                    <td>
-                                        <input [(ngModel)] ="createProf.password" type="password" name="password" class="input-box"  placeholder="Password here" ng-model="password" required>
-                                    </td>
-                                </tr>
-                            </table>
+                                   
+                                        <input [(ngModel)] ="createProf.password" #password = "ngModel" type="password" name="password" class="input-box"  placeholder="Password here" ng-model="password" required>
+                                        <div *ngIf = "password.errors && (password.dirty || password.touched)">
+                   
+                                            <h3 *ngIf="password.errors.required">*First Name is required</h3>
+                                </div>
                             
-                            <button (click) = "createProfile()" type="submit" class="reg_btn" [routerLink]="'/login'">Create Profile</button>
-                            <div *ngIf ="showMsg">show</div>
+                            
+                            <button (click) = "createProfile()" type="submit" class="reg_btn" >Create Profile</button>
+                            <div *ngIf ="showMsg">
+                                <p><strong>Registration Successful!! </strong><a [routerLink]="'/login'">click here to login</a> </p>
+                            </div>
                             <hr>
-                            <p> already have a Profile? <button [routerLink]="'/login'" class="reg_btn"> Click here to log in</button>
+                            <p> already have a Profile? <a [routerLink]="'/login'">click here to login</a>
                    </div>
             </form>
             

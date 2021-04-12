@@ -182,11 +182,11 @@ a:hover{
                                 <label>Password:</label>
                             </th>
                             <td>
-                                <input [(ngModel)]="loginUserData.password" type="password" name="userpass" class="input-box"  placeholder="Password here" ng-model="password" ng-required="true">
+                                <input [(ngModel)]="loginUserData.password" type="password" name="password" class="input-box"  placeholder="Password here" ng-model="password" ng-required="true">
                             </td>
                         </tr>
                     </table>
-                    <button [routerLink]="'/dashboard'" class="reg_btn">Log in</button>
+                    <button (click) ="loginUser()"class="reg_btn">Log in</button>
                      <!-- button type="submit" class="reg_btn" href="">Login </button> -->
                             <hr>
                             <p> New here?<a href="index.html"> click here to create a profile</a></p>

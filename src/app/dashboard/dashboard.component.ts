@@ -18,11 +18,6 @@ applicants:any=[];
   getApplicants(){
     this.myProfile.getApplicants().subscribe((data:any)=>this.applicants=data);
   }
-  deleteStud(studentNumber:number)
-  {
-    this.myProfile.deleteStud(studentNumber).subscribe(data => {
-      this.getApplicants();
-    })
-  }
+ 
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplyService } from './../../app/apply.service';
+import { Router, RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-apply',
@@ -10,7 +11,8 @@ export class ApplyComponent implements OnInit {
   
 
   applying:any = {}
-  constructor(private applyIcep: ApplyService) { }
+  showMsg = false;
+  constructor(private applyIcep: ApplyService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -19,5 +21,9 @@ export class ApplyComponent implements OnInit {
       res => console.log(res),
       err => console.log(err)
     )
+      this.showMsg = true;
+    
   }
+  
+  
 }
